@@ -57,5 +57,20 @@ class Sodoku:
     def getColumnSquares(self, column):
         return [self.getSquareRowColumn(i, column) for i in range(9)]
 
+    def isNumberInRow(self, row, number):
+        return number in self.getRowSquares(row)
+
+    def isNumberInColumn(self, column, number):
+        return number in self.getColumnSquares(column)
+
+    def isNumberInBlock(self, block, number):
+        return number in self.blocks[block].squares
+
+    def setSquareBlockRowColumn(self, block, row, column, number):
+        self.blocks[block].setSquareRowColumn(row, column, number)
+
+    def getSquareBlockRowColumn(self, block, row, column):
+        return (self.blocks[block].getSquareRowColumn(row, column))
+
 if __name__ == "__main__":
     a = Sodoku()
